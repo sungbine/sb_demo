@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class DemoController {
+
     @GetMapping("/hello")
     public String hello() throws UnknownHostException {
         return "Hello " + InetAddress.getLocalHost().getHostName();

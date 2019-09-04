@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: sb-demo-deployment
+spec:
+  replicas: 2
+  minReadySeconds: 2
+  selector:
+    matchLabels:
+      app: sb-demo
+  template:
+    metadata:
+      name: sb-demo-pod
+      labels:
+        app: sb-demo
+    spec:
+      containers:
+      - name: sb-demo
+        image: docker.iflat.nhn.com/sb_demo
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sb-demo-svc
+spec:
+  selector:
+    app: sb-demo
+  ports:
+    - name: http
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  type: LoadBalancer

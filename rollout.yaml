@@ -16,7 +16,7 @@ spec:
         source: demo
     spec:
       containers:
-        - name: sb-demo-con
+      - name: sb-demo-con
         image: docker.iflat.nhn.com/sb_demo
         imagePullPolicy: Always
         ports:

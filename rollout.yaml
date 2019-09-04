@@ -1,0 +1,24 @@
+apiVersion: apps/v1beta2
+kind: ReplicaSet
+metadata:
+  name: sb-demo-rs
+spec:
+  replicas: 2
+  minReadySeconds: 2
+  selector:
+    matchLabels:
+      app: sb-demo
+  template:
+    metadata:
+      name: sb-demo-pod
+      labels:
+        app: sb-demo
+    spec:
+      containers:
+      - name: sb-demo
+        image: docker.iflat.nhn.com/sb_demo
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: regcred

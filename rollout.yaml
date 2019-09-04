@@ -1,7 +1,9 @@
 apiVersion: apps/v1beta2
-kind: Deployment
+kind: ReplicaSet
 metadata:
-  name: sb-demo-deploy
+  name: sb-demo-rs
+  labels:
+    app: sb-demo
 spec:
   replicas: 2
   minReadySeconds: 2

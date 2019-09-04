@@ -15,7 +15,6 @@ spec:
       labels:
         app: sb-demo
         source: demo
-        namespace: sb
     spec:
       containers:
       - name: sb-demo-con

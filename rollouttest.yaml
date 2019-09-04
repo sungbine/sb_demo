@@ -2,6 +2,7 @@ apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
   name: sb-demo-app
+  namespace: sb
 spec:
   replicas: 2
   minReadySeconds: 2
@@ -14,6 +15,7 @@ spec:
       labels:
         app: sb-demo
         source: demo
+        namespace: sb
     spec:
       containers:
       - name: sb-demo-con

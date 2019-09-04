@@ -12,7 +12,7 @@ spec:
       app: sb-demo
   template:
     metadata:
-      name: sb-demo-pod
+      name: sb-demo-app
       labels:
         app: sb-demo
     spec:

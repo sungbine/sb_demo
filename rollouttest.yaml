@@ -6,6 +6,8 @@ metadata:
     traffic.spinnaker.io/load-balancers: '["service sb-demo-svc"]'
   name: sb-demo-app
   namespace: nhnsb
+  label:
+    app: sb-demo
 spec:
   replicas: 2
   minReadySeconds: 2

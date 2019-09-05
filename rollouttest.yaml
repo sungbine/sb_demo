@@ -14,12 +14,10 @@ spec:
   selector:
     matchLabels:
       app: sb-demo
-      source: demo
   template:
     metadata:
       labels:
         app: sb-demo
-        source: demo
     spec:
       containers:
       - name: sb-demo-con

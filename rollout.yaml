@@ -1,19 +1,20 @@
 apiVersion: apps/v1beta2
 kind: ReplicaSet
 metadata:
-  name: sb-demo-app
+  name: sb-demo-front
+  annotations:
+    strategy.spinnaker.io/max-version-history: '2'
+    traffic.spinnaker.io/load-balancers: '["service sb-demo-svc"]'
 spec:
   replicas: 2
   minReadySeconds: 2
   selector:
     matchLabels:
       app: sb-demo
-      source: demo
   template:
     metadata:
       labels:
-        app: sb-demo
-        source: demo
+        frontedBy: sb-demo-svc`
     spec:
       containers:
       - name: sb-demo-con

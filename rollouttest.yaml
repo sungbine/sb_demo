@@ -1,21 +1,22 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
   annotations:
     strategy.spinnaker.io/max-version-history: '2'
-    traffic.spinnaker.io/load-balancers: '["service rollout-svc"]'
+    traffic.spinnaker.io/load-balancers: '["service sb-demo-svc"]'
   labels:
-    app: myapp2
-  name: myapp2-frontend
+    app: sb-demo
+  name: sb-demo-frontend
+  namesapce: nhnsb
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: myapp2
+      app: sb-demo
   template:
     metadata:
       labels:
-        app: myapp2
+        app: sb-demo
     spec:
       containers:
         - image: docker.iflat.nhn.com/sb_demo

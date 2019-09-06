@@ -5,6 +5,8 @@ metadata:
   annotations:
     strategy.spinnaker.io/max-version-history: '2'
     traffic.spinnaker.io/load-balancers: '["service sb-demo-svc"]'
+  labels:
+    app: sb-demo
 spec:
   replicas: 2
   minReadySeconds: 2
@@ -14,7 +16,7 @@ spec:
   template:
     metadata:
       labels:
-        frontedBy: sb-demo-svc`
+        app: sb-demo
     spec:
       containers:
       - name: sb-demo-con

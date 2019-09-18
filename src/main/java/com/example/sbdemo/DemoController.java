@@ -11,6 +11,6 @@ public class DemoController {
 
     @GetMapping("/hello")
     public String hello() throws UnknownHostException {
-        return "Hello sb " + InetAddress.getLocalHost().getHostName();
+        return "Hello sb demofeature " + InetAddress.getLocalHost().getHostName();
     }
 }
